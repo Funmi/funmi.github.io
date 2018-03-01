@@ -1,0 +1,706 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="问题分析," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="数组越界取值写死了之前调试的时候，取了三条数据，所以取值的时候就按照index,0,1,2来取值，忽略了后台没有返回值的情况下去取值就会报数组越界。例如：12NSMutableArray *array = [[NSMutableArray alloc]initWithObjects:@1,@2,@3, nil];NSNumber *number = [array objectAtIndex:4];">
+<meta property="og:type" content="article">
+<meta property="og:title" content="App开发过程中常见问题分析">
+<meta property="og:url" content="http://yoursite.com/2016/06/24/App开发过程中常见问题分析/index.html">
+<meta property="og:site_name" content="方米团队博客">
+<meta property="og:description" content="数组越界取值写死了之前调试的时候，取了三条数据，所以取值的时候就按照index,0,1,2来取值，忽略了后台没有返回值的情况下去取值就会报数组越界。例如：12NSMutableArray *array = [[NSMutableArray alloc]initWithObjects:@1,@2,@3, nil];NSNumber *number = [array objectAtIndex:4];">
+<meta property="og:updated_time" content="2018-03-01T05:49:39.718Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="App开发过程中常见问题分析">
+<meta name="twitter:description" content="数组越界取值写死了之前调试的时候，取了三条数据，所以取值的时候就按照index,0,1,2来取值，忽略了后台没有返回值的情况下去取值就会报数组越界。例如：12NSMutableArray *array = [[NSMutableArray alloc]initWithObjects:@1,@2,@3, nil];NSNumber *number = [array objectAtIndex:4];">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <title> App开发过程中常见问题分析 | 方米团队博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?29df66b98641fa1eb4edb792fef116c9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">方米团队博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">记录成长的点点滴滴</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                App开发过程中常见问题分析
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-24T09:38:04+08:00" content="2016-06-24">
+              2016-06-24
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/24/App开发过程中常见问题分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/24/App开发过程中常见问题分析/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-eye"></i> 本文总阅读量
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="数组越界"><a href="#数组越界" class="headerlink" title="数组越界"></a>数组越界</h2><h3 id="取值写死了"><a href="#取值写死了" class="headerlink" title="取值写死了"></a>取值写死了</h3><p>之前调试的时候，取了三条数据，所以取值的时候就按照index,0,1,2来取值，忽略了后台没有返回值的情况下去取值就会报数组越界。例如：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSMutableArray</span> *array = [[<span class="built_in">NSMutableArray</span> alloc]initWithObjects:@<span class="number">1</span>,@<span class="number">2</span>,@<span class="number">3</span>, <span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">NSNumber</span> *number = [array objectAtIndex:<span class="number">4</span>];</span><br></pre></td></tr></table></figure></p>
+<h3 id="for循环取值越界"><a href="#for循环取值越界" class="headerlink" title="for循环取值越界"></a>for循环取值越界</h3><p>列表中时count+1行，然而取值时还是按照顺序来取值。<br><a id="more"></a><br>例如：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSMutableArray</span> *array = [[<span class="built_in">NSMutableArray</span> alloc]initWithObjects:@<span class="number">1</span>,@<span class="number">2</span>,@<span class="number">3</span>, <span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">NSInteger</span> count = array.count;</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">NSInteger</span> i = <span class="number">1</span>; i &lt;= count; i++) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [array objectAtIndex:i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>for循环取值是下标是[0, count-1]的闭区间。</p>
+<h3 id="数据返回为空"><a href="#数据返回为空" class="headerlink" title="数据返回为空"></a>数据返回为空</h3><p>数据返回为空是指后台返回的数据数组是空的，然而没有做空判断就去取值，导致数组越界的异常。</p>
+<p>所以取值前需要先判断数组的长度然后再根据数组长度来取值。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (array &amp;&amp; array.count &gt; <span class="number">5</span>) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [array objectAtIndex:<span class="number">5</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="多层for循环取值混乱"><a href="#多层for循环取值混乱" class="headerlink" title="多层for循环取值混乱"></a>多层for循环取值混乱</h3><p>嵌套循环取值，取值错误把i取成了j，j取成了i，这是需要特别小心的地方。比如下面这个例子：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSMutableArray</span> *arrayA = [[<span class="built_in">NSMutableArray</span> alloc]initWithObjects:@<span class="number">1</span>,@<span class="number">2</span>,@<span class="number">3</span>,@<span class="number">4</span>, <span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">NSMutableArray</span> *arrayB = [[<span class="built_in">NSMutableArray</span> alloc]initWithObjects:@<span class="number">1</span>,@<span class="number">2</span>,@<span class="number">3</span>, <span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">NSInteger</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (; i &lt;= arrayA.count; i++) &#123;</span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [arrayA objectAtIndex:i]);</span><br><span class="line">  <span class="keyword">for</span> (; j &lt; arrayB.count; j++) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [arrayB objectAtIndex:i]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="页面刷新问题"><a href="#页面刷新问题" class="headerlink" title="页面刷新问题"></a>页面刷新问题</h2><p>比较常见的页面刷新问题主要有，当你做了某些操作时，，其它页面的相关联的数据需要得到及时的刷新。</p>
+<h2 id="内存溢出问题"><a href="#内存溢出问题" class="headerlink" title="内存溢出问题"></a>内存溢出问题</h2><h3 id="创建的实例没有释放"><a href="#创建的实例没有释放" class="headerlink" title="创建的实例没有释放"></a>创建的实例没有释放</h3><p>这里举个例子，体现得最明显的地方就是地图的释放，如果你在离开这个页面的时候不释放地图控件，当你来回切换地图界面和非地图界面时将会出现卡死的情况。</p>
+<h3 id="block的使用"><a href="#block的使用" class="headerlink" title="block的使用"></a>block的使用</h3><p>oc情况下使用block使用self.xx导致循环引用无法释放。</p>
+<h3 id="代理的使用"><a href="#代理的使用" class="headerlink" title="代理的使用"></a>代理的使用</h3><p>oc情况下声明代理的使用用了strong而不是assign。</p>
+<h2 id="逻辑处理"><a href="#逻辑处理" class="headerlink" title="逻辑处理"></a>逻辑处理</h2><ol>
+<li>情况考虑过少。</li>
+<li>情况复杂就先放下，抱有侥幸心理。</li>
+</ol>
+<h2 id="后台的一些问题"><a href="#后台的一些问题" class="headerlink" title="后台的一些问题"></a>后台的一些问题</h2><p>很多时候App的一些错误都是由后台造成的，比较常见的问题有：</p>
+<h3 id="返回字段不统一"><a href="#返回字段不统一" class="headerlink" title="返回字段不统一"></a>返回字段不统一</h3><p>比如说同样一个对象User，有时候返回userName,有时侯返回name。</p>
+<h3 id="返回状态码不统一"><a href="#返回状态码不统一" class="headerlink" title="返回状态码不统一"></a>返回状态码不统一</h3><p>一会儿成功状态码是200，一会儿是300。</p>
+<h3 id="字段名称更改"><a href="#字段名称更改" class="headerlink" title="字段名称更改"></a>字段名称更改</h3><p>之前调试都是好好的，突然一下没有获取到值了，原因很有可能就是后台接口返回的字段改变了。</p>
+<blockquote>
+<p>注意：后台字段一定要统一不要随意更改，若有更改需要通知App组相关开发人员。</p>
+</blockquote>
+<h3 id="字段删减"><a href="#字段删减" class="headerlink" title="字段删减"></a>字段删减</h3><p>这个问题和上面差不多，返回突然少了一个字段。</p>
+<h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><p>后台设计接口的时候一定要考虑到分页，只要有列表的页面都应该考虑到分页的情况，不要到后面才想起要加分页，这个问题要从一开始设计接口的时候就要尽量避免。</p>
+<h2 id="需求理解"><a href="#需求理解" class="headerlink" title="需求理解"></a>需求理解</h2><p>这个是最要命的问题，人家要做一辆火车，而你需求理解错误造出了一辆汽车。到了后期交付的时候，这可怎么交付啊！</p>
+<h3 id="没有看原型图"><a href="#没有看原型图" class="headerlink" title="没有看原型图"></a>没有看原型图</h3><p>很多时候，原型图都还没有理解透彻就已经开始在编码了，这会出现什么情况呢？这有可能会直接导致你写的程序就是bug，没有一个功能是可以交付的。</p>
+<h3 id="前后台理解不一致"><a href="#前后台理解不一致" class="headerlink" title="前后台理解不一致"></a>前后台理解不一致</h3>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/问题分析/" rel="tag">#问题分析</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/20/RxAndroid-2/" rel="next" title="RxJava 学习笔记 2">
+                <i class="fa fa-chevron-left"></i> RxJava 学习笔记 2
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/29/关于项目进度与项目质量问题的解决方案/" rel="prev" title="关于项目进度与项目质量问题的解决方案">
+                关于项目进度与项目质量问题的解决方案 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/06/24/App开发过程中常见问题分析/"
+     data-title="App开发过程中常见问题分析"
+     data-content=""
+     data-url="http://yoursite.com/2016/06/24/App开发过程中常见问题分析/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/24/App开发过程中常见问题分析/"
+           data-title="App开发过程中常见问题分析" data-url="http://yoursite.com/2016/06/24/App开发过程中常见问题分析/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars1.githubusercontent.com/u/6712603?v=3&s=200"
+               alt="方米团队" />
+          <p class="site-author-name" itemprop="name">方米团队</p>
+          <p class="site-description motion-element" itemprop="description">技术从积累开始</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jvaeyhcd.cc" title="Jvaeyhcd" target="_blank">Jvaeyhcd</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.lqs1993.cc/" title="lqs1993" target="_blank">lqs1993</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.polesapp.com/" title="极数软件" target="_blank">极数软件</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组越界"><span class="nav-number">1.</span> <span class="nav-text">数组越界</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#取值写死了"><span class="nav-number">1.1.</span> <span class="nav-text">取值写死了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环取值越界"><span class="nav-number">1.2.</span> <span class="nav-text">for循环取值越界</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据返回为空"><span class="nav-number">1.3.</span> <span class="nav-text">数据返回为空</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多层for循环取值混乱"><span class="nav-number">1.4.</span> <span class="nav-text">多层for循环取值混乱</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面刷新问题"><span class="nav-number">2.</span> <span class="nav-text">页面刷新问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存溢出问题"><span class="nav-number">3.</span> <span class="nav-text">内存溢出问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建的实例没有释放"><span class="nav-number">3.1.</span> <span class="nav-text">创建的实例没有释放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#block的使用"><span class="nav-number">3.2.</span> <span class="nav-text">block的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理的使用"><span class="nav-number">3.3.</span> <span class="nav-text">代理的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑处理"><span class="nav-number">4.</span> <span class="nav-text">逻辑处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后台的一些问题"><span class="nav-number">5.</span> <span class="nav-text">后台的一些问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#返回字段不统一"><span class="nav-number">5.1.</span> <span class="nav-text">返回字段不统一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回状态码不统一"><span class="nav-number">5.2.</span> <span class="nav-text">返回状态码不统一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字段名称更改"><span class="nav-number">5.3.</span> <span class="nav-text">字段名称更改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字段删减"><span class="nav-number">5.4.</span> <span class="nav-text">字段删减</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分页"><span class="nav-number">5.5.</span> <span class="nav-text">分页</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需求理解"><span class="nav-number">6.</span> <span class="nav-text">需求理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#没有看原型图"><span class="nav-number">6.1.</span> <span class="nav-text">没有看原型图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前后台理解不一致"><span class="nav-number">6.2.</span> <span class="nav-text">前后台理解不一致</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">方米团队</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i> 本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jvaeyhcd"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,704 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="代码规范中最重要同样也是最重要的规范应该就是代码规范了吧。代码中到处都需要命名，作为程序员我们可能常常会为一些变量、常量、函数等命名而烦恼。下面有一些关于命名的注意事项，它可以帮助我们提高命名的能了，使我们的代码更具有可读性。
+使用能够表达意图的名字名字得能告诉我们它要做什么，为什么存在，以及是如何工作的。选择能够表达意图的名字，将更有利于我们理解代码。
+123456int d; // elaps">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码规范之程序员必须知道的命名规范">
+<meta property="og:url" content="http://yoursite.com/2016/07/05/代码规范之程序员必须知道的命名规范/index.html">
+<meta property="og:site_name" content="方米团队博客">
+<meta property="og:description" content="代码规范中最重要同样也是最重要的规范应该就是代码规范了吧。代码中到处都需要命名，作为程序员我们可能常常会为一些变量、常量、函数等命名而烦恼。下面有一些关于命名的注意事项，它可以帮助我们提高命名的能了，使我们的代码更具有可读性。
+使用能够表达意图的名字名字得能告诉我们它要做什么，为什么存在，以及是如何工作的。选择能够表达意图的名字，将更有利于我们理解代码。
+123456int d; // elaps">
+<meta property="og:updated_time" content="2018-03-01T05:49:39.753Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="代码规范之程序员必须知道的命名规范">
+<meta name="twitter:description" content="代码规范中最重要同样也是最重要的规范应该就是代码规范了吧。代码中到处都需要命名，作为程序员我们可能常常会为一些变量、常量、函数等命名而烦恼。下面有一些关于命名的注意事项，它可以帮助我们提高命名的能了，使我们的代码更具有可读性。
+使用能够表达意图的名字名字得能告诉我们它要做什么，为什么存在，以及是如何工作的。选择能够表达意图的名字，将更有利于我们理解代码。
+123456int d; // elaps">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <title> 代码规范之程序员必须知道的命名规范 | 方米团队博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?29df66b98641fa1eb4edb792fef116c9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">方米团队博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">记录成长的点点滴滴</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                代码规范之程序员必须知道的命名规范
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-05T15:52:03+08:00" content="2016-07-05">
+              2016-07-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/05/代码规范之程序员必须知道的命名规范/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/05/代码规范之程序员必须知道的命名规范/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-eye"></i> 本文总阅读量
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>代码规范中最重要同样也是最重要的规范应该就是代码规范了吧。代码中到处都需要命名，作为程序员我们可能常常会为一些变量、常量、函数等命名而烦恼。下面有一些关于命名的注意事项，它可以帮助我们提高命名的能了，使我们的代码更具有可读性。</p>
+<h2 id="使用能够表达意图的名字"><a href="#使用能够表达意图的名字" class="headerlink" title="使用能够表达意图的名字"></a>使用能够表达意图的名字</h2><p>名字得能告诉我们它要做什么，为什么存在，以及是如何工作的。选择能够表达意图的名字，将更有利于我们理解代码。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> d; <span class="comment">// elapsed time in days</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> elapsedTimeInDays;</span><br><span class="line"><span class="keyword">int</span> daysSinceCreation;</span><br><span class="line"><span class="keyword">int</span> daysSinceModification;</span><br><span class="line"><span class="keyword">int</span> fileAgeInDays;</span><br></pre></td></tr></table></figure>
+<p>在上面的片段中，我们只能从注释中知道变量d指的是什么。于是阅读代码的人为了知道它的含义就不得不去寻找它的实例以获取线索。所以，要是我们能够好好命名这个变量，阅读代码的人就能够瞬间知道这变量的含义。<br><a id="more"></a></p>
+<h2 id="不要怕在选择名字上花时间"><a href="#不要怕在选择名字上花时间" class="headerlink" title="不要怕在选择名字上花时间"></a>不要怕在选择名字上花时间</h2><p>你应该多试几种不同的名字，直至足以描述其含义，千万不要害怕在这上面花时间。以后阅读你代码的人（包括你自己）将会因此而受益。此外，一个描述性的名称甚至还能有助于你在心中理清模块的设计。良好的命名的确需要花费时间，但是从长远来看，利大于弊。</p>
+<h2 id="重构名字"><a href="#重构名字" class="headerlink" title="重构名字"></a>重构名字</h2><p>如果你在后面的开发过程中想到了一个更好的名字，那就不要犹豫，马上去改吧。现在的IDE使得重构名字变得异常容易。</p>
+<h2 id="避免在名字中出现干扰词"><a href="#避免在名字中出现干扰词" class="headerlink" title="避免在名字中出现干扰词"></a>避免在名字中出现干扰词</h2><p>比如Manager、Processor、Data、Info以及“我不知道这叫什么”的同义词，都是干扰词。如果你需要使用上面这些干扰词的话，那么说明你的命名可能太累赘了。</p>
+<h2 id="类名"><a href="#类名" class="headerlink" title="类名"></a>类名</h2><p>类应该有个名词或名词词组的名字，如<code>Customer</code>、<code>WikiPage</code>、<code>Account</code>和<code>AddressParser</code>。继承性父类应该给个又短又有冲击力的名字。子类的名字应该长点，通过形容词来描述其不同于它的父类之处，如<code>SavingsAccount</code>衍生于<code>Account</code>。</p>
+<h2 id="变量名"><a href="#变量名" class="headerlink" title="变量名"></a>变量名</h2><p>变量名也应该是名词。它们大多是由其指向的类衍生出去的。布尔变量应写成谓词的形式，如<code>isEmpty</code>和<code>isTerminated</code>，这样放到<code>if</code>语句才便于理解。</p>
+<h2 id="方法名"><a href="#方法名" class="headerlink" title="方法名"></a>方法名</h2><p>方法名应该是一个动词或动词词组，如<code>postPayment()</code>、<code>deletePage()</code>和<code>save()</code>。访问器和调整器应该分别前缀<code>get</code>和<code>set</code>。返回布尔值的方法应该前缀‘is’，如<code>isPostable()</code>，这样在<code>if</code>语句中才便于理解。</p>
+<h2 id="范围大小与变量名的长度"><a href="#范围大小与变量名的长度" class="headerlink" title="范围大小与变量名的长度"></a>范围大小与变量名的长度</h2><p>变量名的长度应和它的范围大小相匹配。如果变量的范围很短，那么变量名的长度也应该很短。反之，变量名则应该长一点，更有描述性。</p>
+<h2 id="范围大小与方法-类名的长度"><a href="#范围大小与方法-类名的长度" class="headerlink" title="范围大小与方法/类名的长度"></a>范围大小与方法/类名的长度</h2><p>对于方法和类名的长度则应该与其范围成反比。对于公共方法，短一点的名字会比较好，这是因为它们会被调用多次。私有方法只在类的范围内被调用，长一点的名字反而可以作为文档使用。此条规则的例外是派生类的名字。类越派生，基类前所加的形容词就越多，名字也就越长。</p>
+<h2 id="一个概念一个词"><a href="#一个概念一个词" class="headerlink" title="一个概念一个词"></a>一个概念一个词</h2><p>为某个抽象概念选定一个词，然后就不要变了。例如作为不同类中的等效方法，<code>get()</code>、<code>fetch()</code>和<code>retrieve()</code>会让人混淆起来。保持一致的词汇是程序员驾驭代码的重要工具。</p>
+<h2 id="不要将同一个词用于两个不同的概念"><a href="#不要将同一个词用于两个不同的概念" class="headerlink" title="不要将同一个词用于两个不同的概念"></a>不要将同一个词用于两个不同的概念</h2><p>如果你遵循上一点一个概念一个词的原则，那么就可以避免许多有着相同方法名的类。只要参数列表和各种方法的返回值在语义上是等价的就没问题。只有当你将同一个词用于两个不同的概念时才会出现问题。</p>
+<p>例如，我们可以在多个类中使用<code>add()</code>方法，通过添加或连接两个现有的值来创建一个新的值。如果我们之后又需要在类中引入一个<code>add</code>方法用于添加参数到集合中，这就会因为语义不同而导致问题。这种新方法最好是改叫为<code>insert()</code>。</p>
+<h2 id="使用解决方案领域的名字"><a href="#使用解决方案领域的名字" class="headerlink" title="使用解决方案领域的名字"></a>使用解决方案领域的名字</h2><p>我们编写的代码今后可能会有其他程序员来阅读，所以我们使用一些技术术语进行代码命名会带来很大的好处。比如适当地使用算法名字、设计模式名字以及数学术语，这些命名方式很可能会让其他程序员更容易理解程序，引起共鸣。</p>
+<h2 id="使用问题领域的名字"><a href="#使用问题领域的名字" class="headerlink" title="使用问题领域的名字"></a>使用问题领域的名字</h2><p>如果实在找不到易于理解的技术术语来命名，那么也可以从问题领域来寻找合适的代码命名。当未来阅读你代码的程序员不确定代码意义的时候，这将为他们提供一些问题的线索。</p>
+<h2 id="添加有意义的语境"><a href="#添加有意义的语境" class="headerlink" title="添加有意义的语境"></a>添加有意义的语境</h2><p>大多数名字其本身是没有意义的，并且需要放到语境（类/函数/命名空间）中，才能让阅读代码的人理解它们指代的是什么。在某些情况下，可能需要前缀名称以补充语境。例如，假设我们有一些用来表示地址的变量：<code>firstName</code>、<code>lastName</code>、<code>street</code>、<code>houseNumber</code>、<code>city</code>、<code>state</code>和<code>zip</code>。如果只看<code>state</code>这个变量，我们是很难推断出它指的是什么意思，一个比较好的解决办法就是将这些变量封装到<code>Address</code>类中。</p>
+<h2 id="不要添加没来由的语境"><a href="#不要添加没来由的语境" class="headerlink" title="不要添加没来由的语境"></a>不要添加没来由的语境</h2><p>只要意思明确，短一点的名字通常比长的好，所以不要多此一举地添加语境。名字前不应该被加缀一些可以从类/包/命名空间中推断的不必要的信息。</p>
+<h2 id="避免编码"><a href="#避免编码" class="headerlink" title="避免编码"></a>避免编码</h2><p>鉴于现在的IDE的强大，我们已经不需要编码类型和范围信息到变量名和类名中。这包括不必添加I至接口，因为使用代码的用户不需要知道他们的类正在向接口传递。所以如果你一定要使用编码，那么最好是对实现进行编码而不是接口。</p>
+<h2 id="避免错误的信息"><a href="#避免错误的信息" class="headerlink" title="避免错误的信息"></a>避免错误的信息</h2><p>不要给一些错误的信息，因为这样会误导阅读代码的人。如果你将一个实际支持数组的变量命名为<code>accountList</code>，那就很容易让人得出错误的结论。<code>accountList</code>应该命名为<code>accounts</code>会好一点。</p>
+<h2 id="使用读不出来的名字"><a href="#使用读不出来的名字" class="headerlink" title="使用读不出来的名字"></a>使用读不出来的名字</h2><p>编程是一个社会化的活动，使用那些读不出来的名字只会阻碍我们的讨论。</p>
+<h2 id="使用易搜索的名字"><a href="#使用易搜索的名字" class="headerlink" title="使用易搜索的名字"></a>使用易搜索的名字</h2><p>使用短而通用的名字会妨碍我们在代码库中搜索事物。这对我们操纵代码和重构很有影响。</p>
+<p>最后还有什么相关的建议，欢迎大家一起讨论</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/05/JS代码规范/" rel="next" title="JS代码规范">
+                <i class="fa fa-chevron-left"></i> JS代码规范
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/04/Jenkins-Cocoapods-Coding-Git-Fir-iOS项目持续集成/" rel="prev" title="Jenkins+Cocoapods+Coding+Git+Fir iOS项目持续集成">
+                Jenkins+Cocoapods+Coding+Git+Fir iOS项目持续集成 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/07/05/代码规范之程序员必须知道的命名规范/"
+     data-title="代码规范之程序员必须知道的命名规范"
+     data-content=""
+     data-url="http://yoursite.com/2016/07/05/代码规范之程序员必须知道的命名规范/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/05/代码规范之程序员必须知道的命名规范/"
+           data-title="代码规范之程序员必须知道的命名规范" data-url="http://yoursite.com/2016/07/05/代码规范之程序员必须知道的命名规范/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars1.githubusercontent.com/u/6712603?v=3&s=200"
+               alt="方米团队" />
+          <p class="site-author-name" itemprop="name">方米团队</p>
+          <p class="site-description motion-element" itemprop="description">技术从积累开始</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jvaeyhcd.cc" title="Jvaeyhcd" target="_blank">Jvaeyhcd</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.lqs1993.cc/" title="lqs1993" target="_blank">lqs1993</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.polesapp.com/" title="极数软件" target="_blank">极数软件</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用能够表达意图的名字"><span class="nav-number">1.</span> <span class="nav-text">使用能够表达意图的名字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不要怕在选择名字上花时间"><span class="nav-number">2.</span> <span class="nav-text">不要怕在选择名字上花时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重构名字"><span class="nav-number">3.</span> <span class="nav-text">重构名字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免在名字中出现干扰词"><span class="nav-number">4.</span> <span class="nav-text">避免在名字中出现干扰词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类名"><span class="nav-number">5.</span> <span class="nav-text">类名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量名"><span class="nav-number">6.</span> <span class="nav-text">变量名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法名"><span class="nav-number">7.</span> <span class="nav-text">方法名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范围大小与变量名的长度"><span class="nav-number">8.</span> <span class="nav-text">范围大小与变量名的长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范围大小与方法-类名的长度"><span class="nav-number">9.</span> <span class="nav-text">范围大小与方法/类名的长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个概念一个词"><span class="nav-number">10.</span> <span class="nav-text">一个概念一个词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不要将同一个词用于两个不同的概念"><span class="nav-number">11.</span> <span class="nav-text">不要将同一个词用于两个不同的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用解决方案领域的名字"><span class="nav-number">12.</span> <span class="nav-text">使用解决方案领域的名字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用问题领域的名字"><span class="nav-number">13.</span> <span class="nav-text">使用问题领域的名字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加有意义的语境"><span class="nav-number">14.</span> <span class="nav-text">添加有意义的语境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不要添加没来由的语境"><span class="nav-number">15.</span> <span class="nav-text">不要添加没来由的语境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免编码"><span class="nav-number">16.</span> <span class="nav-text">避免编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免错误的信息"><span class="nav-number">17.</span> <span class="nav-text">避免错误的信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用读不出来的名字"><span class="nav-number">18.</span> <span class="nav-text">使用读不出来的名字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用易搜索的名字"><span class="nav-number">19.</span> <span class="nav-text">使用易搜索的名字</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">方米团队</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i> 本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jvaeyhcd"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>
