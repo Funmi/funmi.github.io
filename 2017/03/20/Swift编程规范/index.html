@@ -74,6 +74,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="方米团队博客" type="application/atom+xml" />
+
 
 
 
@@ -84,25 +86,18 @@
 
 
 
-<meta name="description" content="关于Swift的代码的相关规范，不同的开发者都有自己相应的规范，可能还是很多人根本就没有规范。为了保证同一个公司同一个项目组中代码美观并且一致，这里写下这份Swift编程规范指南。该指南首要目标是让代码紧凑，可读性更高且简洁。
-代码格式
-使用四个空格进行缩进
-每行最多160个字符，这样可以避免一行过长（Xcode-&amp;gt;Preferences-&amp;gt;Text Editing-&amp;gt;Page">
+<meta name="description" content="关于Swift的代码的相关规范，不同的开发者都有自己相应的规范，可能还是很多人根本就没有规范。为了保证同一个公司同一个项目组中代码美观并且一致，这里写下这份Swift编程规范指南。该指南首要目标是让代码紧凑，可读性更高且简洁。 代码格式 使用四个空格进行缩进 每行最多160个字符，这样可以避免一行过长（Xcode-&amp;gt;Preferences-&amp;gt;Text Editing-&amp;gt;Page">
+<meta name="keywords" content="cocoaPods">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift编码规范">
 <meta property="og:url" content="http://yoursite.com/2017/03/20/Swift编程规范/index.html">
 <meta property="og:site_name" content="方米团队博客">
-<meta property="og:description" content="关于Swift的代码的相关规范，不同的开发者都有自己相应的规范，可能还是很多人根本就没有规范。为了保证同一个公司同一个项目组中代码美观并且一致，这里写下这份Swift编程规范指南。该指南首要目标是让代码紧凑，可读性更高且简洁。
-代码格式
-使用四个空格进行缩进
-每行最多160个字符，这样可以避免一行过长（Xcode-&amp;gt;Preferences-&amp;gt;Text Editing-&amp;gt;Page">
-<meta property="og:updated_time" content="2018-03-01T05:49:39.753Z">
+<meta property="og:description" content="关于Swift的代码的相关规范，不同的开发者都有自己相应的规范，可能还是很多人根本就没有规范。为了保证同一个公司同一个项目组中代码美观并且一致，这里写下这份Swift编程规范指南。该指南首要目标是让代码紧凑，可读性更高且简洁。 代码格式 使用四个空格进行缩进 每行最多160个字符，这样可以避免一行过长（Xcode-&amp;gt;Preferences-&amp;gt;Text Editing-&amp;gt;Page">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-01T05:49:39.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift编码规范">
-<meta name="twitter:description" content="关于Swift的代码的相关规范，不同的开发者都有自己相应的规范，可能还是很多人根本就没有规范。为了保证同一个公司同一个项目组中代码美观并且一致，这里写下这份Swift编程规范指南。该指南首要目标是让代码紧凑，可读性更高且简洁。
-代码格式
-使用四个空格进行缩进
-每行最多160个字符，这样可以避免一行过长（Xcode-&amp;gt;Preferences-&amp;gt;Text Editing-&amp;gt;Page">
+<meta name="twitter:description" content="关于Swift的代码的相关规范，不同的开发者都有自己相应的规范，可能还是很多人根本就没有规范。为了保证同一个公司同一个项目组中代码美观并且一致，这里写下这份Swift编程规范指南。该指南首要目标是让代码紧凑，可读性更高且简洁。 代码格式 使用四个空格进行缩进 每行最多160个字符，这样可以避免一行过长（Xcode-&amp;gt;Preferences-&amp;gt;Text Editing-&amp;gt;Page">
 
 
 
@@ -227,9 +222,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -353,7 +371,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> value = <span class="number">20</span> + (<span class="number">34</span> / <span class="number">2</span>) * <span class="number">3</span></span><br><span class="line"><span class="keyword">if</span> <span class="number">1</span> + <span class="number">1</span> == <span class="number">2</span> &#123;</span><br><span class="line">	<span class="comment">//TODO</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">pancake</span> -&gt; <span class="title">Pancake</span> </span>&#123;</span><br><span class="line">	<span class="comment">/** do something **/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>遵守Xcode内置的缩进格式，当声明的一个函数需要跨多行时，推荐使用Xcode默认格式。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Xcode针对跨多行函数声明缩进</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">myFunctionWithManyParameters</span><span class="params">(parameterOne: String,</span><br><span class="line">                                  parameterTwo: String,</span><br><span class="line">                                  parameterThree: String)</span></span> &#123;</span><br><span class="line">    <span class="comment">// Xcode会自动缩进</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\(parameterOne) \(parameterTwo) \(parameterThree)"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Xcode针对多行 if 语句的缩进</span></span><br><span class="line"><span class="keyword">if</span> myFirstVariable &gt; (mySecondVariable + myThirdVariable)</span><br><span class="line">    &amp;&amp; myFourthVariable == .<span class="type">SomeEnumValue</span> &#123;</span><br><span class="line">    <span class="comment">// Xcode会自动缩进</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Hello, World!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Xcode针对跨多行函数声明缩进</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">myFunctionWithManyParameters</span><span class="params">(parameterOne: String,</span></span></span><br><span class="line"><span class="function"><span class="params">                                  parameterTwo: String,</span></span></span><br><span class="line"><span class="function"><span class="params">                                  parameterThree: String)</span></span> &#123;</span><br><span class="line">    <span class="comment">// Xcode会自动缩进</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\(parameterOne) \(parameterTwo) \(parameterThree)"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Xcode针对多行 if 语句的缩进</span></span><br><span class="line"><span class="keyword">if</span> myFirstVariable &gt; (mySecondVariable + myThirdVariable)</span><br><span class="line">    &amp;&amp; myFourthVariable == .<span class="type">SomeEnumValue</span> &#123;</span><br><span class="line">    <span class="comment">// Xcode会自动缩进</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Hello, World!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>当调用一个函数有多个参数时，每个参数另起一行，比函数名多一个缩进。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">functionWithArguments(</span><br><span class="line">    firstArgument: <span class="string">"Hello, I am a string"</span>,</span><br><span class="line">    secondArgument: resultFromSomeFunction()</span><br><span class="line">    thirdArgument: someOtherLocalVariable)</span><br></pre></td></tr></table></figure>
@@ -427,7 +445,7 @@
 </li>
 <li><p>默认的访问修饰符是internal，可省略不写。</p>
 </li>
-<li>当一个变量需要被单元测试 访问时，需要声明为 internal 类型来使用@testable import {ModuleName}。 如果一个变量实际上是private 类型，而因为单元测试需要被声明为 internal 类型，确定添加合适的注释文档来解释为什么这么做。这里添加注释推荐使用 - warning: 标记语法。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> 这个变量是private 名字</span><br><span class="line"> - warning: 定义为 internal 而不是 private 为了 `@testable`.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">let</span> pirateName = <span class="string">"LeChuck"</span></span><br></pre></td></tr></table></figure>
+<li>当一个变量需要被单元测试 访问时，需要声明为 internal 类型来使用@testable import {ModuleName}。 如果一个变量实际上是private 类型，而因为单元测试需要被声明为 internal 类型，确定添加合适的注释文档来解释为什么这么做。这里添加注释推荐使用 - warning: 标记语法。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> 这个变量是private 名字</span></span><br><span class="line"><span class="comment"> - warning: 定义为 internal 而不是 private 为了 `@testable`.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> pirateName = <span class="string">"LeChuck"</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="自定义操作符"><a href="#自定义操作符" class="headerlink" title="自定义操作符"></a>自定义操作符</h3><ul>
@@ -495,7 +513,7 @@
 </ul>
 <h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><p>假设一个函数 myFunction 返回类型声明为 String，但是总有可能函数会遇到error，有一种解决方案是返回类型声明为 String?, 当遇到错误的时候返回 nil。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">readFile</span><span class="params">(withFilename filename: String)</span></span> -&gt; <span class="type">String</span>? &#123;</span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> file = openFile(filename) <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> fileContents = file.read()</span><br><span class="line">    file.close()</span><br><span class="line">    <span class="keyword">return</span> fileContents</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">printSomeFile</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> filename = <span class="string">"somefile.txt"</span></span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> fileContents = readFile(filename) <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"不能打开 \(filename)."</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">print</span>(fileContents)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>实际上如果预知失败的原因，我们应该使用Swift 中的 try/catch 。<br>定义 错误对象 结构体如下:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Error</span>: <span class="title">ErrorType</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">let</span> file: <span class="type">StaticString</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">let</span> function: <span class="type">StaticString</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">let</span> line: <span class="type">UInt</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">let</span> message: <span class="type">String</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">init</span>(message: <span class="type">String</span>, file: <span class="type">StaticString</span> = #file, function: <span class="type">StaticString</span> = #function, line: <span class="type">UInt</span> = #line) &#123;</span><br><span class="line">        <span class="keyword">self</span>.file = file</span><br><span class="line">        <span class="keyword">self</span>.function = function</span><br><span class="line">        <span class="keyword">self</span>.line = line</span><br><span class="line">        <span class="keyword">self</span>.message = message</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>使用案例:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">func readFile(withFilename filename: String) throws -&gt; String &#123;</span><br><span class="line">    guard let file = openFile(filename) else &#123;</span><br><span class="line">        throw Error(message: “打不开的文件名称 \(filename).")</span><br><span class="line">    &#125;</span><br><span class="line">    let fileContents = file.read()</span><br><span class="line">    file.close()</span><br><span class="line">    return fileContents</span><br><span class="line">&#125;</span><br><span class="line">func printSomeFile() &#123;</span><br><span class="line">    do &#123;</span><br><span class="line">        let fileContents = try readFile(filename)</span><br><span class="line">        print(fileContents)</span><br><span class="line">    &#125; catch &#123;</span><br><span class="line">        print(error)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用案例:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">readFile</span><span class="params">(withFilename filename: String)</span></span> <span class="keyword">throws</span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> file = openFile(filename) <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="type">Error</span>(message: “打不开的文件名称 \(filename).<span class="string">")</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    let fileContents = file.read()</span></span><br><span class="line"><span class="string">    file.close()</span></span><br><span class="line"><span class="string">    return fileContents</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">func printSomeFile() &#123;</span></span><br><span class="line"><span class="string">    do &#123;</span></span><br><span class="line"><span class="string">        let fileContents = try readFile(filename)</span></span><br><span class="line"><span class="string">        print(fileContents)</span></span><br><span class="line"><span class="string">    &#125; catch &#123;</span></span><br><span class="line"><span class="string">        print(error)</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure></p>
 <p>其实项目中还是有一些场景更适合声明为可选类型，而不是错误捕捉和处理，比如在获取远端数据过程中遇到错误，nil作为返回结果是合理的，也就是声明返回可选类型比错误处理更合理。</p>
 <p>整体上说，如果一个方法有可能失败，并且使用可选类型作为返回类型会导致错误原因湮没，不妨考虑抛出错误而不是吃掉它。</p>
 <h3 id="使用-guard-语句"><a href="#使用-guard-语句" class="headerlink" title="使用 guard 语句"></a>使用 guard 语句</h3><ul>
@@ -509,7 +527,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// if 语句更有可读性</span></span><br><span class="line"><span class="keyword">if</span> operationFailed &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// guard 语句这里有更好的可读性</span></span><br><span class="line"><span class="keyword">guard</span> isSuccessful <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 双重否定不易被理解 - 不要这么做</span></span><br><span class="line"><span class="keyword">guard</span> !operationFailed <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果需要在2个状态间做出选择，建议使用if 语句，而不是使用 guard 语句。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 推荐</span><br><span class="line">if isFriendly &#123;</span><br><span class="line">    print("你好, 远路来的朋友！")</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    print(“穷小子，哪儿来的？")</span><br><span class="line">&#125;</span><br><span class="line">// 不推荐</span><br><span class="line">guard isFriendly else &#123;</span><br><span class="line">    print("穷小子，哪儿来的？")</span><br><span class="line">    return</span><br><span class="line">&#125;</span><br><span class="line">print("你好, 远路来的朋友！")</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 推荐</span></span><br><span class="line"><span class="keyword">if</span> isFriendly &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"你好, 远路来的朋友！"</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(“穷小子，哪儿来的？<span class="string">")</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">// 不推荐</span></span><br><span class="line"><span class="string">guard isFriendly else &#123;</span></span><br><span class="line"><span class="string">    print("</span>穷小子，哪儿来的？<span class="string">")</span></span><br><span class="line"><span class="string">    return</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">print("</span>你好, 远路来的朋友！<span class="string">")</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>你只应该在在失败情形下退出当前上下文的场景下使用 guard 语句，下面的例子可以解释 if 语句有时候比 guard 语句更合适 – 我们有两个不相关的条件，不应该相互阻塞。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> monkeyIsland = monkeyIsland &#123;</span><br><span class="line">    bookVacation(onIsland: monkeyIsland)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> woodchuck = woodchuck <span class="keyword">where</span> canChuckWood(woodchuck) &#123;</span><br><span class="line">    woodchuck.chuckWood()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -521,12 +539,12 @@
 <h2 id="文档-注释"><a href="#文档-注释" class="headerlink" title="文档/注释"></a>文档/注释</h2><h3 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h3><p>如果一个函数比 O(1) 复杂度高，你需要考虑为函数添加注释，因为函数签名(方法名和参数列表) 并不是那么的一目了然，这里推荐比较流行的插件 VVDocumenter. 不论出于何种原因，如果有任何奇淫巧计不易理解的代码，都需要添加注释，对于复杂的 类/结构体/枚举/协议/属性 都需要添加注释。所有公开的 函数/类/变量/枚举/协议/属性/常数 也都需要添加文档，特别是 函数声明(包括名称和参数列表) 不是那么清晰的时候。<br>在注释文档完成后，你应检查格式是否正确。<br>注释文档规则如下：</p>
 <ul>
 <li>一行不要超过160个字符 (和代码长度限制雷同)。</li>
-<li>即使文档注释只有一行，也要使用模块化格式 (/<em>* </em>/)。</li>
+<li>即使文档注释只有一行，也要使用模块化格式 (/*<em> </em>/)。</li>
 <li>注释模块中的空行不要使用 * 来占位。</li>
 <li>确定使用新的 – parameter 格式，而不是就得 Use the new -:param: 格式，另外注意 parameter 是小写的。</li>
 <li>如果需要给一个方法的 参数/返回值/抛出异常 添加注释，务必给所有的添加注释，即使会看起来有部分重复，否则注释会看起来不完整，有时候如果只有一个参数值得添加注释，可以在方法注释里重点描述。</li>
 <li><p>对于负责的类，在描述类的使用方法时可以添加一些合适的例子，请注意Swift注释是支持 MarkDown 语法的。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> ## 功能列表</span><br><span class="line"> 这个类提供下一下很赞的功能，如下:</span><br><span class="line"> - 功能 1</span><br><span class="line"> - 功能 2</span><br><span class="line"> - 功能 3</span><br><span class="line"> ## 例子</span><br><span class="line"> 这是一个代码块使用四个空格作为缩进的例子。</span><br><span class="line">     let myAwesomeThing = MyAwesomeClass()</span><br><span class="line">     myAwesomeThing.makeMoney()</span><br><span class="line"> ## 警告</span><br><span class="line"> 使用的时候总注意以下几点</span><br><span class="line"> 1. 第一点</span><br><span class="line"> 2. 第二点</span><br><span class="line"> 3. 第三点</span><br><span class="line"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyAwesomeClass</span> </span>&#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> ## 功能列表</span></span><br><span class="line"><span class="comment"> 这个类提供下一下很赞的功能，如下:</span></span><br><span class="line"><span class="comment"> - 功能 1</span></span><br><span class="line"><span class="comment"> - 功能 2</span></span><br><span class="line"><span class="comment"> - 功能 3</span></span><br><span class="line"><span class="comment"> ## 例子</span></span><br><span class="line"><span class="comment"> 这是一个代码块使用四个空格作为缩进的例子。</span></span><br><span class="line"><span class="comment">     let myAwesomeThing = MyAwesomeClass()</span></span><br><span class="line"><span class="comment">     myAwesomeThing.makeMoney()</span></span><br><span class="line"><span class="comment"> ## 警告</span></span><br><span class="line"><span class="comment"> 使用的时候总注意以下几点</span></span><br><span class="line"><span class="comment"> 1. 第一点</span></span><br><span class="line"><span class="comment"> 2. 第二点</span></span><br><span class="line"><span class="comment"> 3. 第三点</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyAwesomeClass</span> </span>&#123;</span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在写文档注释时，尽量保持简洁。</p>
 </li>
@@ -668,7 +686,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -676,7 +694,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -685,7 +703,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -693,6 +711,13 @@
 
         </nav>
 
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">
@@ -897,6 +922,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
   
 
   
